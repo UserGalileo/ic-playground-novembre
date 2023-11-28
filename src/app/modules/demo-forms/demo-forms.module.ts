@@ -5,13 +5,21 @@ import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DemoTemplateFormsComponent} from "./demo-template-forms.component";
 import {DemoReactiveFormsComponent} from "./demo-reactive-forms.component";
+import {ForbiddenAsyncDirective, ForbiddenDirective} from "./validators";
+import {CounterComponent} from "./counter.component";
+import {AddressComponent} from "./address.component";
 
 @NgModule({
   imports: [
     CommonModule,
     DemoFormsRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    // Standalone
+    ForbiddenDirective,
+    ForbiddenAsyncDirective,
+    CounterComponent,
+    AddressComponent
   ],
   declarations: [
     DemoFormsComponent,
