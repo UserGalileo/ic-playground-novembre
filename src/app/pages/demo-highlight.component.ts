@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {UnlessDirective} from "../directives/unless.directive";
 import {HighlightDirective} from "../directives/highlight.directive";
-import {RouterOutlet, Routes} from "@angular/router";
+import {Routes} from "@angular/router";
 
 @Component({
   selector: 'app-demo-highlight',

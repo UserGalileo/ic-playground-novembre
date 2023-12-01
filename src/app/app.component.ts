@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {ListComponent} from "./components/list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, ListComponent],
   template: `
     <a
       routerLink="demo-accordion"
@@ -20,7 +21,12 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
       routerLink="demo-forms"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
-    >DEMO forms</a>
+    >DEMO forms</a> |
+    <a
+      routerLink="demo-http"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >DEMO http</a>
     <hr>
     <router-outlet></router-outlet>
   `,
@@ -31,6 +37,5 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
   `]
 })
 export class AppComponent {
-
 }
 

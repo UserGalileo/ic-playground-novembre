@@ -1,12 +1,24 @@
 import {ApplicationConfig} from '@angular/core';
-import {provideRouter} from '@angular/router';
+import {provideRouter, withComponentInputBinding} from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideHttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi} from "@angular/common/http";
+import {logInterceptor} from "./interceptors/log.interceptor";
+import {CacheInterceptor} from "./interceptors/cache.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
-    provideHttpClient()
+    provideRouter(routes,
+      withComponentInputBinding()
+    ),
+    provideHttpClient(
+      withInterceptors([logInterceptor]),
+      withInterceptorsFromDi()
+    ),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
+      multi: true
+    }
   ]
 };

@@ -1,7 +1,7 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {DemoAccordionComponent} from "./pages/demo-accordion.component";
 import {routes as highlightRoutes} from "./pages/demo-highlight.component";
-import {DemoFormsModule} from "./modules/demo-forms/demo-forms.module";
+import {routes as httpRoutes} from "./pages/demo-http.component";
 
 export const routes: Routes = [
   {
@@ -18,10 +18,14 @@ export const routes: Routes = [
     path: 'demo-highlight',
     loadChildren: () => highlightRoutes
   },
-  // Not Lazy Loading
+  // Lazy Loading
   {
     path: 'demo-forms',
-    loadChildren: () => DemoFormsModule
+    loadChildren: () => import('./modules/demo-forms/demo-forms.module').then(m => m.DemoFormsModule),
+  },
+  {
+    path: 'demo-http',
+    loadChildren: () => httpRoutes,
   },
   {
     path: '**',
