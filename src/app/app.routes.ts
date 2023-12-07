@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 import {DemoAccordionComponent} from "./pages/demo-accordion.component";
 import {routes as highlightRoutes} from "./pages/demo-highlight.component";
 import {routes as httpRoutes} from "./pages/demo-http.component";
+import {routes as todosRoutes} from "./pages/demo-todos/demo-todos.component";
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path: 'demo-http',
     loadChildren: () => httpRoutes,
+  },
+  {
+    path: 'demo-todos',
+    loadChildren: () => todosRoutes,
   },
   {
     path: '**',

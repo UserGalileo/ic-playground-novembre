@@ -26,7 +26,12 @@ import {ListComponent} from "./components/list.component";
       routerLink="demo-http"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
-    >DEMO http</a>
+    >DEMO http</a> |
+    <a
+      routerLink="demo-todos"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >DEMO todos</a>
     <hr>
     <router-outlet></router-outlet>
   `,
